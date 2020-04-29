@@ -1,0 +1,13 @@
+O projeto americanas foi criado inicialmente apenas para revisão e fixação do conteúdo de automação de testes. Infelizmente
+não pesquisei o suficiente e quando terminei de fazer o cadastro funcionar como deveria, descobri que o site possui um captcha obrigatório
+ao clicar no botão de finalizar cadastro. Portanto irei alterar para funcionar no site das Casas Bahia, que não possui essa segurança.
+
+De qualquer forma, o projeto funciona da seguinte maneira:
+
+1) O teste com a tag "@pegar4dev" acessa o site "https://www.4devs.com.br/gerador_de_pessoas" (URL se encontra no arquivo application.properties)
+e gera uma pessoa aleatória com dados válidos. Desses dados, ele copia o nome, email, cpf, telefone e data de nascimento.
+2) O teste com a tag "@startWeb" acessa o site "americanas.com.br" e faz um cadastro usando os dados salvos do site 4devs. O teste não termina em sucesso
+pois existe um captcha. 
+
+
+É isso.
