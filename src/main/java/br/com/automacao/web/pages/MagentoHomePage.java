@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MugentoHomePage {
+public class MagentoHomePage {
 
-    public MugentoHomePage(WebDriver webDriver) {
+    public MagentoHomePage(WebDriver webDriver) {
         PageFactory.initElements(webDriver, this);
     }
 

@@ -1,26 +1,39 @@
 package automacao.src.test.java.br.com.steps.web;
 
-import br.com.automacao.web.functionality.MugentoRegisterFunctionality;
+import br.com.automacao.web.functionality.MagentoCustomerFunctionality;
+import br.com.automacao.web.functionality.MagentoRegisterFunctionality;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.Given;
-
-import static org.junit.Assert.assertEquals;
 
 public class MugentoRegisterSteps {
 
     private WebDriver webDriver;
 
-    private MugentoRegisterFunctionality mugentoRegisterFunctionality = new MugentoRegisterFunctionality();
+    private MagentoRegisterFunctionality magentoRegisterFunctionality = new MagentoRegisterFunctionality();
+    private MagentoCustomerFunctionality magentoCustomerFunctionality = new MagentoCustomerFunctionality();
 
-    @Given("^I search for \"([^\"]*)\"$")
-    public void i_search_for(String arg1) {
-        mugentoRegisterFunctionality.writeGoogleSearchBar(arg1);
+    @And("^i fill in all the required fields with data$")
+    public void iFillInAllTheRequiredFieldsWithData() {
+        this.magentoRegisterFunctionality.writeFields(
+                "marquinhos",
+                "ribeiro",
+                "marquinhosgostosao@bol.com.br",
+                "senhapicatlg#6"
+                );
     }
 
-    @Then("^google should show me results$")
-    public void i_google_should_show_me_results() {
-        mugentoRegisterFunctionality.clickGoogleSearchButton();
+    @And("^i click on the button to finish the process$")
+    public void iClickOnTheButtonToFinishTheProcess() {
+        this.magentoRegisterFunctionality.clickCreateAccountBtn();
+    }
+
+    @Then("^i can see the error message displayed on the website$")
+    public void iMOfficiallyRegisteredOnTheWebsite() {
+        Assert.assertEquals("There is already an account with this email address. " +
+                                "If you are sure that it is your email address, click here to get your password and access your account."
+                                , this.magentoCustomerFunctionality.getSuccessfulAccountRegisterMessage());
     }
 }
