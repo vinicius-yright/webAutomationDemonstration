@@ -9,14 +9,10 @@ public class BaseTest {
 	protected static WebDriver segundoDriver;
 	protected static WebDriverWait wait;
 	
-	protected void initializeWebApplication(WebApplication webApplication, boolean valor) {
+	protected void initializeWebApplication(WebApplication webApplication) {
 		webDriver = webApplication.getDriver();
 		webDriver.manage().window().maximize();
-		if (valor == true) {
-			webDriver.get(PropertiesManager.getPropertiesValue("URL_QA"));
-		} else if (valor == false) {
-			webDriver.get(PropertiesManager.getPropertiesValue("URL_DEV"));
-		}
+		webDriver.get(PropertiesManager.getPropertiesValue("URL_QA"));
 		wait = new WebDriverWait(webDriver, 30);
 	}
 	

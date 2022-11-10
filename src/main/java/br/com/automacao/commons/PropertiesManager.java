@@ -11,7 +11,7 @@ public class PropertiesManager {
 	
 	public static String getPropertiesValue(String valor){
         Properties prop = new Properties();
-        File file = new File("C:\\Users\\vinicius.brito\\eclipse-workspace\\automacao\\src\\main\\resources");
+        File file = new File("D:\\WebAutomationDemo\\src\\main\\resources");
         try {
             prop.load(new FileInputStream(file.getAbsolutePath()+"/application.properties"));
         } catch (FileNotFoundException e) {
